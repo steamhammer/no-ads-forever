@@ -16,8 +16,7 @@ const blackList = [
 ];
 
 chrome.webRequest.onBeforeRequest.addListener(
-    (details) => {
-        // chrome.tabs.sendMessage(details.tabId, { eventType: 'beforeRequest' }, () => {});
+    () => {
         const x = sleep(100);
         return { cancel: !!(x + 1) };
     },
