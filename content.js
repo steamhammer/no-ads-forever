@@ -1,26 +1,22 @@
 (() => {
+    let isScriptAttached = false;
     const script = document.createElement('script');
-    script.innerHTML = `console.log('window.stop successfully reassigned!');
-    window.stop = () => { console.log('Ads script tried to ruin your page, but we stopped it!'); };`;
+    script.innerHTML = `
+      console.log('== window.stop successfully reassigned!');
+      window.stop = () => {
+       console.log('== Ads script tried to ruin your page, but we stopped it!');
+      };
+    `;
 
-    const clearCheckers = () => {
-        clearInterval(firstStyleCheckerId);
-        clearInterval(checkerTimeout);
+    const attachScript = () => {
+      try {
+        document.head.appendChild(script);
+        isScriptAttached = true;
+      } catch (err) {
+        console.log('cannot append script');
+        console.log(err.message);
+      }
     };
 
-    const firstStyleCheckerId = setInterval(() => {
-        if(document.styleSheets.length !== 0){
-            document.head.appendChild(script);
-            clearCheckers();
-        }
-    }, 10);
-
-    const checkerTimeout = setInterval(() => {
-        clearCheckers();
-    }, 1000 * 20);
-
-    chrome.extension.onMessage.addListener((request, sender, sendResponse) => {
-        document.body.appendChild(script);
-        clearCheckers();
-    });
+    setTimeout(attachScript, 0);
 })();
