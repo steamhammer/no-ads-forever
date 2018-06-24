@@ -18,10 +18,10 @@ const blackList = [
 ];
 
 chrome.webRequest.onBeforeRequest.addListener(
-    () => {
-        const x = sleep(500);
-        return { cancel: !!(x + 1) };
-    },
-    { urls: blackList },
-    ['blocking']
+  () => {
+    const x = sleep(500);
+    return { cancel: !!(x + 1) };
+  },
+  { urls: blackList },
+  ['blocking']
 );
