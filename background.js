@@ -13,7 +13,7 @@ const blackList = [
   '*://*.dsn-fishki.ru/*',
   '*://*.rcdn.pro/*',
   '*://*.smcheck.org/*',
-  '*://*.klcheck.org/*',
+  '*://*.klcheck.com/*',
   '*://*.zmctrack.org/*'
 ];
 
