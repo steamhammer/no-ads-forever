@@ -14,7 +14,7 @@ const blackList = [
   '*://*.rcdn.pro/*',
   '*://*.smcheck.org/*',
   '*://*.klcheck.com/*',
-  '*://*.zmctrack.org/*'
+  '*://*.zmctrack.net/*'
 ];
 
 chrome.webRequest.onBeforeRequest.addListener(
