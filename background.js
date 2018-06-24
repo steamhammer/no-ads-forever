@@ -12,7 +12,9 @@ const blackList = [
   '*://*.amgload.net/*',
   '*://*.dsn-fishki.ru/*',
   '*://*.rcdn.pro/*',
-  '*://*.smcheck.org/*'
+  '*://*.smcheck.org/*',
+  '*://*.klcheck.org/*',
+  '*://*.zmctrack.org/*'
 ];
 
 chrome.webRequest.onBeforeRequest.addListener(
